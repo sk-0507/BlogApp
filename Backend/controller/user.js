@@ -11,9 +11,9 @@ try {
     const exiestingUser = await User.findOne({ email: email });
 
     if (!email || !name || !password) {
-      return res.json({ msg: "all fields are required" });
+      return res.json({ msg: "Please fill all the input fields" });
     } else if (exiestingUser) {
-      return res.json({ msg: "You are already register" });
+      return res.json({ msg: "User is already registered" });
     } else {
       const user = new User({
         name: name,
@@ -40,7 +40,7 @@ const Login = async (req,res)=>{
       const userEmail = await User.findOne({ email: email });
       const userPassword = await User.findOne({ password: password });
       if (userEmail && userPassword) {
-        return res.json({ msg: "User already Logged In Successfully!!" });
+        return res.json({ msg: "User Logged In Successfully!!" });
       } else {
         return res.json({ msg: "Incorrect email or password !!" });
       }
