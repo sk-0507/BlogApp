@@ -2,16 +2,17 @@ const Post = require("../model/post");
 
 const savePost = async (req, res) => {
   try {
-    const { imgUrl, title, desc } = req.body;
+    const { imgUrl, title, desc , name} = req.body;
     const user = req.user._id
     
-    if (!imgUrl || !title || !desc) {
+    if (!imgUrl || !title || !desc || !name) {
       res.json({ msg: "All fields are required" });
     }
     const exiestinPost = await Post.findOne({
       imgUrl: imgUrl,
       title: title,
       desc: desc,
+      
     
     });
     if (exiestinPost) {
@@ -21,7 +22,8 @@ const savePost = async (req, res) => {
       imgUrl: imgUrl,
       title: title,
       desc: desc,
-      author: user
+      name: name,
+      author: user,
     });
     await posted.save().then(() => {
       res.json({ msg: "Your Post is save successfully" });

@@ -6,7 +6,8 @@ const Postform = () => {
   const [imgUrl, setimgUrl] = useState("");
   const [title, settitle] = useState("");
   const [desc, setdesc] = useState("");
-  const navigate = useNavigate()
+   
+  const [name , setName] = useState("");
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +15,7 @@ const Postform = () => {
     setimgUrl("");
     settitle("");
     setdesc("");
+    setName(" ");
   };
   const saveform = async () => {
     const token = localStorage.getItem("Token");
@@ -33,6 +35,7 @@ const Postform = () => {
             imgUrl: url,
             title: title,
             desc: desc,
+            name:name
           }),
         }
       );
@@ -86,8 +89,25 @@ const Postform = () => {
               <form
                 onSubmit={handleOnSubmit}
                 className="space-y-4 md:space-y-6"
-                action="#"
+                
               >
+                <div>
+                  <label
+                    for="name"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Your name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    id="title"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Name"
+                  />
+                </div>
                 <div>
                   <label
                     for="imgUrl"
@@ -149,7 +169,7 @@ const Postform = () => {
                   Create Post
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  See your post {" "}
+                  See your post{" "}
                   <Link
                     to="/home"
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500 text-sky-600"

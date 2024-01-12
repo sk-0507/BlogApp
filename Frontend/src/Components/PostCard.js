@@ -3,7 +3,7 @@ import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
 
 function PostCard({ data }) {
-  const { imgUrl, title, desc,_id} = data;
+  const { imgUrl, title, desc,_id , name} = data;
   const id = _id;
   //const date = createdAt.toLocaleString('en-GB',{day:'numeric',month:'long',year:'numeric'});
   const navigate = useNavigate();
@@ -88,7 +88,8 @@ const handleOnUpdate = () => {
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500 text-justify">
                 {desc}
               </p>
-              <strong>{moment().format('MMMM Do YYYY, h:mm:ss a')}</strong>
+              <strong>{moment().format('MMMM Do YYYY, h:mm:ss a')}</strong><br/>
+              <strong>Posted by : {name}</strong>
               <div className="button grid grid-cols-1 lg:grid-cols-2 py-12">
                 
                   <button onClick={handleOnUpdate}  className="w-[50%] rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50">

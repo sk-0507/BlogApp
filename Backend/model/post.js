@@ -14,8 +14,13 @@ const postSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
+      uppercase:true
     },
     desc: {
+      type: String,
+      required: true,
+    },
+    name: {
       type: String,
       required: true,
     },

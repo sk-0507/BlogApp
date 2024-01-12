@@ -23,6 +23,10 @@ const SignUp = () => {
 
 const addUser = async () => {
   // const { name, email, password } = form;
+  const name = name;
+  localStorage.setItem("Name",name);
+  
+
   try {
     const response = await fetch("http://localhost:3000/api/v1/user/signUp", {
       headers: {
