@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 function Login() {
 
    const [error, seterror] = useState("");
+    
   
    
   const handleOnclick = () =>{
@@ -59,7 +60,7 @@ function Login() {
              seterror(0);
            }
             if (responseData.msg === "User Logged In Successfully!!") {
-              navigate("/home");
+              navigate( `/home`);
             }
          } else {
            console.error("Response is not in JSON format");

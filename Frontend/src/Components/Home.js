@@ -55,7 +55,6 @@ try {
               <div>
                 <Link to="/Postform">
                   <a
-                     
                     className="block py-2 px-3   text-slate-50 rounded md:bg-transparent   md:p-0 dark:text-white md:dark:text-blue-500 hover:text-blue-200"
                     aria-current="page"
                   >
@@ -65,22 +64,26 @@ try {
               </div>
               <div>
                 <Link to="/About">
-                  <a
-                     
-                    className="block py-2 px-3 text-slate-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
+                  <a className="block py-2 px-3 text-slate-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                     About-me!
                   </a>
                 </Link>
               </div>
               <div>
                 <button
-                  type='submit'
+                  type="submit"
                   onClick={HandleOnClick}
                   className="block py-2 px-3 text-slate-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   <Link to="/login">LogOut</Link>
                 </button>
+              </div>
+              <div>
+                <Link to="/About">
+                  <a className="block py-2 px-3 text-slate-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                    
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -89,7 +92,7 @@ try {
       <div className="h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
         {data?.post?.map((item) => (
           <div key={item._id}>
-            <PostCard data={item}/>
+            <PostCard data={item} />
           </div>
         ))}
       </div>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function LandingPage() {
   return (
     <>
-      <div className="h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 overflow-y-hidden overflow-x-hidden ">
+      <div className="lg:h-screen  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 overflow-y-hidden overflow-x-hidden ">
         <h1 className="text-center mt-56 text-slate-100 font-sarif text-4xl">
           ✨Welcome to PostPilot! ✨
         </h1>

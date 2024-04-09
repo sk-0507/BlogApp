@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 
 const SignUp = () => {
 
    const [error, seterror] = useState("");
+    const [name, setname] = useState("");
+    const navigate = useNavigate()
    
     const handleOnclick = () => {
       
      seterror(1);
+     navigate(`/login`);
       
     };
+  
+
  
-  const [name , setname] = useState("");
+ 
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   // const [form, setForm] = useState({
@@ -23,8 +28,8 @@ const SignUp = () => {
 
 const addUser = async () => {
   // const { name, email, password } = form;
-  const name = name;
-  localStorage.setItem("Name",name);
+  // const name = name;
+  // localStorage.setItem("Name",name);
   
 
   try {

@@ -7,11 +7,15 @@ const About = () => {
   return (
     <>
       <div className="h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 overflow-y-hidden overflow-x-hidden flex justify-center items-center">
-        <div className="main bg-slate-50 w-[80%] h-[80%] rounded-md">
+        <div className="main bg-slate-50 w-[80%] h-[80%] rounded-md overflow-scroll">
           <div className="flex flex-col items-center">
             <img
               src="https://img.freepik.com/premium-vector/man-male-character-avatar-vector-portrait-businessman-type-clothes_491904-56.jpg?w=740"
-              className="w-72 py-4  rounded-full  "
+              className="sm:w-78 py-4 h-72 rounded-full "
+               
+
+              
+              alt="Developer Image"
             />
             <div>
               <p className="  font-serif px-8 text-lg text-center">

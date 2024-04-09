@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 const Postform = () => {
+  const navigate = useNavigate();
   const [imgUrl, setimgUrl] = useState("");
   const [title, settitle] = useState("");
   const [desc, setdesc] = useState("");
@@ -11,7 +12,7 @@ const Postform = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    saveform();
+  
     setimgUrl("");
     settitle("");
     setdesc("");
@@ -71,7 +72,8 @@ const Postform = () => {
     }
   };
   const handleOnclick = () => {
-    // navigate("/home");
+      saveform();
+    navigate("/home");
   };
   // const handleOntype = () => {
   //   navigate('/login');
