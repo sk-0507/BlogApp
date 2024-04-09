@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
  import { ToastContainer, toast } from "react-toastify";
  import "react-toastify/dist/ReactToastify.css";
+import { url } from '../BaseUrl';
 
 
 function Login() {
@@ -22,7 +23,7 @@ function Login() {
   const checkUser = async () =>{
     try {
       // const {email,password} = form;
-      const getUser = await fetch("http://localhost:3000/api/v1/user/login", {
+      const getUser = await fetch(`${url}/api/v1/user/login`, {
         headers: {
           "Content-type": "application/json",
         },

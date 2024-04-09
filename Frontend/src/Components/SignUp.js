@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
+import { url } from '../BaseUrl';
 
 const SignUp = () => {
 
@@ -33,7 +34,7 @@ const addUser = async () => {
   
 
   try {
-    const response = await fetch("http://localhost:3000/api/v1/user/signUp", {
+    const response = await fetch(`${url}/api/v1/user/signUp`, {
       headers: {
         "Content-Type": "application/json",
       },

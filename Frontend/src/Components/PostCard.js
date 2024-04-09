@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
+import { url } from "../BaseUrl";
 
 function PostCard({ data }) {
   const { imgUrl, title, desc,_id , name} = data;
@@ -13,7 +14,7 @@ function PostCard({ data }) {
     // console.log(id);
     try {
       const fetchdata = await fetch(
-        `http://localhost:3000/api/v1/post/deletePost/${id}`,
+        `${url}/api/v1/post/deletePost/${id}`,
         {
           method: "DELETE",
           headers: {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import PostCard from './PostCard';
+import { url } from '../BaseUrl';
 
 const Home = () => {
   const navigate = useNavigate()
@@ -12,7 +13,7 @@ const [data , setdata] = useState({});
 useEffect(()=>{
 try {
   const fetchdata = async ()=>{
-    const resp = await fetch("http://localhost:3000/api/v1/post/getPost", {
+    const resp = await fetch(`${url}/api/v1/post/getPost`, {
       method:"GET",
       headers:{
         "Content-Type":"application/json"

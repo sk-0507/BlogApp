@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { url } from "../BaseUrl";
 
 const Updatepost = () => {
  const [imgUrl, setimgUrl] = useState("");
@@ -23,7 +24,7 @@ const {id} = params
      : "https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
    try {
      const createpost = await fetch(
-       `http://localhost:3000/api/v1/post/updatePost/${id}`,
+       `${url}/api/v1/post/updatePost/${id}`,
        {
          method: "PUT",
          headers: {

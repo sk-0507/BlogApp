@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { url } from "../BaseUrl";
 
 const Postform = () => {
   const navigate = useNavigate();
@@ -24,22 +25,19 @@ const Postform = () => {
       ? imgUrl
       : "https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
     try {
-      const createpost = await fetch(
-        "http://localhost:3000/api/v1/post/savePost",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            imgUrl: url,
-            title: title,
-            desc: desc,
-            name:name
-          }),
-        }
-      );
+      const createpost = await fetch(`${url}/api/v1/post/savePost`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          imgUrl: url,
+          title: title,
+          desc: desc,
+          name: name,
+        }),
+      });
       const data = await createpost.json();
       if(data.ok){
           toast.success((data.msg), {
