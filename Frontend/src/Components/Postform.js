@@ -21,23 +21,26 @@ const Postform = () => {
   };
   const saveform = async () => {
     const token = localStorage.getItem("Token");
-    const url = imgUrl
+    const url1 = imgUrl
       ? imgUrl
       : "https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
     try {
-      const createpost = await fetch(`${url}/api/v1/post/savePost`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          imgUrl: url,
-          title: title,
-          desc: desc,
-          name: name,
-        }),
-      });
+      const createpost = await fetch(
+        `${url}/api/v1/post/savePost`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            imgUrl: url1,
+            title: title,
+            desc: desc,
+            name:name
+          }),
+        }
+      );
       const data = await createpost.json();
       if(data.ok){
           toast.success((data.msg), {

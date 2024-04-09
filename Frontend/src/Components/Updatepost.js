@@ -1,55 +1,57 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { url } from "../BaseUrl";
+ 
 
 const Updatepost = () => {
- const [imgUrl, setimgUrl] = useState("");
- const [title, settitle] = useState("");
- const [desc, setdesc] = useState("");
- const params = useParams();
-const {id} = params
- const handleOnSubmit = (e) => {
-   e.preventDefault();
-   saveform();
-   setimgUrl("");
-   settitle("");
-   setdesc("");
- };
- const saveform = async () => {
-   const token = localStorage.getItem("Token");
-   console.log(id);
-   const url = imgUrl
-     ? imgUrl
-     : "https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
-   try {
-     const createpost = await fetch(
-       `${url}/api/v1/post/updatePost/${id}`,
-       {
-         method: "PUT",
-         headers: {
-           "Content-Type": "application/json",
-           Authorization: `Bearer ${token}`,
-         },
-         body: JSON.stringify({
-           imgUrl: url,
-           title: title,
-           desc: desc,
-         }),
-       }
-     );
-     const data = await createpost.json();
-     if (data.ok) {
-       toast.success("Post updated");
-       console.log(data);
-     } else {
-       toast.error(data.error);
-     }
-   } catch (error) {
-     console.log(error);
-   }
- };
- const handleOnclick = () => {};
+  const navigate = useNavigate();
+  const [imgUrl, setimgUrl] = useState("");
+  const [title, settitle] = useState("");
+  const [desc, setdesc] = useState("");
+  const params = useParams();
+  const { id } = params;
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+  
+    setimgUrl("");
+    settitle("");
+    setdesc("");
+  };
+  const saveform = async () => {
+    const token = localStorage.getItem("Token");
+    console.log(id);
+    const url1 = imgUrl
+      ? imgUrl
+      : "https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+    try {
+      const createpost = await fetch(`${url}/api/v1/post/updatePost/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          imgUrl: url1,
+          title: title,
+          desc: desc,
+        }),
+      });
+      const data = await createpost.json();
+      if (data.ok) {
+        toast.success("Post updated");
+        console.log(data);
+      } else {
+        toast.error(data.error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleOnclick = () => {
+      saveform();
+    navigate(`/home`);
+  };
 
   return (
     <>

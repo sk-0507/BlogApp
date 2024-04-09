@@ -55,19 +55,19 @@ try {
             <div className="font-medium flex flex-col lg:flex-row gap-8 items-center p-4 md:p-0 mt-4  ">
               <div>
                 <Link to="/Postform">
-                  <a
+                  <div
                     className="block py-2 px-3   text-slate-50 rounded md:bg-transparent   md:p-0 dark:text-white md:dark:text-blue-500 hover:text-blue-200"
                     aria-current="page"
                   >
                     Create Post
-                  </a>
+                  </div>
                 </Link>
               </div>
               <div>
                 <Link to="/About">
-                  <a className="block py-2 px-3 text-slate-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  <div className="block py-2 px-3 text-slate-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                     About-me!
-                  </a>
+                  </div>
                 </Link>
               </div>
               <div>
@@ -81,9 +81,9 @@ try {
               </div>
               <div>
                 <Link to="/About">
-                  <a className="block py-2 px-3 text-slate-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  <div className="block py-2 px-3 text-slate-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                     
-                  </a>
+                  </div>
                 </Link>
               </div>
             </div>
