@@ -8,37 +8,39 @@ function PostCard({ data }) {
   const id = _id;
   //const date = createdAt.toLocaleString('en-GB',{day:'numeric',month:'long',year:'numeric'});
   const navigate = useNavigate();
-
+  
   const token = localStorage.getItem("Token");
-  const newName = localStorage.getItem("name");
-  console.log("newname",newName)
   const handleOnDelete = async () => {
     // console.log(id);
     try {
-      const fetchdata = await fetch(`${url}/api/v1/post/deletePost/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (fetchdata.ok) {
+      const fetchdata = await fetch(
+        `${url}/api/v1/post/deletePost/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      
+      if(fetchdata.ok){
         const data = await fetchdata.json();
         console.log(data.msg);
-
+        
         window.location.reload();
-      } else {
+      }else{
         console.log("data fetch failed");
       }
     } catch (error) {
       console.log(error);
     }
-  };
+ 
+  }
 
-  const handleOnUpdate = () => {
-    navigate(`/Updatepost/${id}`);
-  };
+const handleOnUpdate = () => {
+  navigate(`/Updatepost/${id}`);
+}
 
   return (
     <>
@@ -91,7 +93,7 @@ function PostCard({ data }) {
               <br />
               <strong>Posted by : {name}</strong>
               <div className="button grid grid-cols-1 lg:grid-cols-2 py-12">
-                {name===newName ? (
+                {author ? (
                   <button
                     onClick={handleOnUpdate}
                     className="w-[50%] rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50"
@@ -100,7 +102,7 @@ function PostCard({ data }) {
                   </button>
                 ) : null}
 
-                {name===newName ? (
+                {author ? (
                   <button
                     onClick={handleOnDelete}
                     className="w-[50%] items-center rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50"

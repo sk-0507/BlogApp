@@ -73,8 +73,6 @@ const Postform = () => {
     }
   };
   const handleOnclick = () => {
-    localStorage.setItem("author", `name`);
- 
       saveform();
     navigate("/home");
   };
