@@ -92,15 +92,15 @@ const handleOnUpdate = () => {
               <strong>{moment().format('MMMM Do YYYY, h:mm:ss a')}</strong><br/>
               <strong>Posted by : {name}</strong>
               <div className="button grid grid-cols-1 lg:grid-cols-2 py-12">
-                
-                  <button onClick={handleOnUpdate}  className="w-[50%] rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50">
+                {id? <button onClick={handleOnUpdate}  className="w-[50%] rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50">
                     Update
-                  </button>
+                  </button>:null}
                  
-
-                <button onClick={handleOnDelete} className="w-[50%] items-center rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50">
+                 
+                { id? <button onClick={handleOnDelete} className="w-[50%] items-center rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50">
                   Delete
-                </button>
+                </button>:null }
+               
               </div>
             </div>
           </div>
