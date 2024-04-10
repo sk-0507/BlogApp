@@ -53,7 +53,7 @@ const Home = () => {
                   to="/home"
                   className={({ isActive }) =>
                     `block py-2 px-3   text-slate-50 rounded md:bg-transparent   md:p-0 dark:text-white md:dark:text-blue-500 ${
-                      isActive ? "text-blue-800" : "text-white"
+                      isActive ? "text-blue-900" : "text-white"
                     } hover:text-blue-200`
                   }
                 >
@@ -65,7 +65,7 @@ const Home = () => {
                   to="/Postform"
                   className={({ isActive }) =>
                     `block py-2 px-3   text-slate-50 rounded md:bg-transparent   md:p-0 dark:text-white md:dark:text-blue-500 ${
-                      isActive ? "text-blue-800" : "text-white"
+                      isActive ? "text-blue-900" : "text-white"
                     } hover:text-blue-200`
                   }
                 >
@@ -77,7 +77,7 @@ const Home = () => {
                   to="/About"
                   className={({ isActive }) =>
                     `block py-2 px-3   text-slate-50 rounded md:bg-transparent   md:p-0 dark:text-white md:dark:text-blue-500 ${
-                      isActive ? "text-blue-800" : "text-white"
+                      isActive ? "text-blue-900" : "text-white"
                     } hover:text-blue-200`
                   }
                 >
@@ -89,7 +89,7 @@ const Home = () => {
                   to="/login"
                   className={({ isActive }) =>
                     `block py-2 px-3   text-slate-50 rounded md:bg-transparent   md:p-0 dark:text-white md:dark:text-blue-500 ${
-                      isActive ? "text-blue-800" : "text-white"
+                      isActive ? "text-blue-900" : "text-white"
                     } hover:text-blue-200`
                   }
                 >
