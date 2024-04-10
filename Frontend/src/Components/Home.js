@@ -1,47 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate,useLoaderData } from 'react-router-dom';
-import PostCard from './PostCard';
-import { url } from '../BaseUrl';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import PostCard from "./PostCard";
+import { url } from "../BaseUrl";
 
 const Home = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const HandleOnClick = () => {
-    localStorage.removeItem("Token")
-    navigate('/login');
-  }
-
- const data =  useLoaderData();
-//const [data , setdata] = useState({});
-// useEffect(()=>{
-// try {
-//   const fetchdata = async ()=>{
-//     const resp = await fetch(`${url}/api/v1/post/getPost`, {
-//       method:"GET",
-//       headers:{
-//         "Content-Type":"application/json"
-//       },
-//     });
-//     if(!resp.ok){
-//        throw new Error(`HTTP error! Status: ${resp.status}`);
-//     }else{
-//       const respInJson = await resp.json();
-//       if(!respInJson){
-//         console.log( "no data found")
-//       }
-//       setdata(respInJson);
-//       console.log("posts>>>",respInJson);
-       
-//     }
-//   }
-//   fetchdata();
-// } catch (error) {
-//   console.log(error)
-// }
-// },[])
-
-
-
-
+    localStorage.removeItem("Token");
+    navigate("/login");
+  };
+  const [data, setdata] = useState({});
+  useEffect(() => {
+    try {
+      const fetchdata = async () => {
+        const resp = await fetch(`${url}/api/v1/post/getPost`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        if (!resp.ok) {
+          throw new Error(`HTTP error! Status: ${resp.status}`);
+        } else {
+          const respInJson = await resp.json();
+          if (!respInJson) {
+            console.log("no data found");
+          }
+          setdata(respInJson);
+          console.log("posts>>>", respInJson);
+        }
+      };
+      fetchdata();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   return (
     <>
@@ -83,9 +76,7 @@ const Home = () => {
               </div>
               <div>
                 <Link to="/About">
-                  <div className="block py-2 px-3 text-slate-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                    
-                  </div>
+                  <div className="block py-2 px-3 text-slate-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"></div>
                 </Link>
               </div>
             </div>
@@ -101,15 +92,6 @@ const Home = () => {
       </div>
     </>
   );
-}
-
-export default Home
-export const homeInfo  = async() => {
-  const res = await fetch(`${url}/api/v1/post/getPost`);
-  const data = await res.json();
-  return {
-    props: {
-      data,
-    },
-  };
 };
+
+export default Home;
