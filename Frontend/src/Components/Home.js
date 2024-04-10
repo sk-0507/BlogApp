@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,useLoaderData } from 'react-router-dom';
 import PostCard from './PostCard';
 import { url } from '../BaseUrl';
 
@@ -9,33 +9,35 @@ const Home = () => {
     localStorage.removeItem("Token")
     navigate('/login');
   }
-const [data , setdata] = useState({});
-useEffect(()=>{
-try {
-  const fetchdata = async ()=>{
-    const resp = await fetch(`${url}/api/v1/post/getPost`, {
-      method:"GET",
-      headers:{
-        "Content-Type":"application/json"
-      },
-    });
-    if(!resp.ok){
-       throw new Error(`HTTP error! Status: ${resp.status}`);
-    }else{
-      const respInJson = await resp.json();
-      if(!respInJson){
-        console.log( "no data found")
-      }
-      setdata(respInJson);
-      console.log("posts>>>",respInJson);
+
+ const data =  useLoaderData();
+//const [data , setdata] = useState({});
+// useEffect(()=>{
+// try {
+//   const fetchdata = async ()=>{
+//     const resp = await fetch(`${url}/api/v1/post/getPost`, {
+//       method:"GET",
+//       headers:{
+//         "Content-Type":"application/json"
+//       },
+//     });
+//     if(!resp.ok){
+//        throw new Error(`HTTP error! Status: ${resp.status}`);
+//     }else{
+//       const respInJson = await resp.json();
+//       if(!respInJson){
+//         console.log( "no data found")
+//       }
+//       setdata(respInJson);
+//       console.log("posts>>>",respInJson);
        
-    }
-  }
-  fetchdata();
-} catch (error) {
-  console.log(error)
-}
-},[])
+//     }
+//   }
+//   fetchdata();
+// } catch (error) {
+//   console.log(error)
+// }
+// },[])
 
 
 
@@ -102,3 +104,12 @@ try {
 }
 
 export default Home
+export const homeInfo  = async() => {
+  const res = await fetch(`${url}/api/v1/post/getPost`);
+  const data = await res.json();
+  return {
+    props: {
+      data,
+    },
+  };
+};

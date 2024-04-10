@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./Components/Home";
+import Home, { homeInfo } from "./Components/Home";
 import Login from "./Components/Login";
 import Nopage from "./Components/Nopage";
 import SignUp from "./Components/SignUp";
@@ -13,7 +13,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/home" element={<Home />} />
+        <Route loader={homeInfo} path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/Postform" element={<Postform />} />
