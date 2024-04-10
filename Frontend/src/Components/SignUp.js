@@ -12,6 +12,7 @@ const SignUp = () => {
     const handleOnclick = () => {
       
      seterror(1);
+      addUser();
      navigate(`/login`);
       
     };
@@ -89,7 +90,7 @@ const addUser = async () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    addUser();
+  
     setemail("");
     setname("");
     setpassword("");
