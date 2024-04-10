@@ -110,12 +110,13 @@ const deletePost = async (req, res) => {
 };
 
 const getPost = async (req, res) => {
+  const user = req.user._id;
   try {
     const post = await Post.find();
     if (!post) {
       res.json({ msg: "Post not found" });
     }
-    res.json({ post });
+    res.json({ post,user});
   } catch (error) {
     res.json({ msg: error });
   }

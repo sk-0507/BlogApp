@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { url } from "../BaseUrl";
 
 function PostCard({ data }) {
-  const { imgUrl, title, desc,_id , name} = data;
+  const { imgUrl, title, desc, _id, name, author } = data;
   const id = _id;
   //const date = createdAt.toLocaleString('en-GB',{day:'numeric',month:'long',year:'numeric'});
   const navigate = useNavigate();
@@ -89,18 +89,27 @@ const handleOnUpdate = () => {
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500 text-justify">
                 {desc}
               </p>
-              <strong>{moment().format('MMMM Do YYYY, h:mm:ss a')}</strong><br/>
+              <strong>{moment().format("MMMM Do YYYY, h:mm:ss a")}</strong>
+              <br />
               <strong>Posted by : {name}</strong>
               <div className="button grid grid-cols-1 lg:grid-cols-2 py-12">
-                {id? <button onClick={handleOnUpdate}  className="w-[50%] rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50">
+                {author ? (
+                  <button
+                    onClick={handleOnUpdate}
+                    className="w-[50%] rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50"
+                  >
                     Update
-                  </button>:null}
-                 
-                 
-                { id? <button onClick={handleOnDelete} className="w-[50%] items-center rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50">
-                  Delete
-                </button>:null }
-               
+                  </button>
+                ) : null}
+
+                {author ? (
+                  <button
+                    onClick={handleOnDelete}
+                    className="w-[50%] items-center rounded-lg h-[3rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50"
+                  >
+                    Delete
+                  </button>
+                ) : null}
               </div>
             </div>
           </div>
